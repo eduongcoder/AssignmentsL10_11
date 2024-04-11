@@ -1,0 +1,33 @@
+package datalayer;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import entity.Group;
+import utils.connect;
+
+public class groupRepository {
+	private connect conn;
+	public List<Group> getListGroup() throws IOException,SQLException,ClassNotFoundException{
+		List<Group> groups= new ArrayList<>();
+		
+		Connection connection=conn.getConnection();
+	
+		String sql ="select id,name from `group`";
+		Statement statement =connection.createStatement();
+		
+		ResultSet resultSet = statement.executeQuery(sql);
+		while(resultSet.next()) {
+			Group group= new Group(resultSet.getInt("id"),resultSet.getString("name"));
+			groups.add(group);
+			
+		}
+		return groups;
+	}
+}

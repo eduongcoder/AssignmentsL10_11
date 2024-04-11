@@ -1,0 +1,58 @@
+package entity;
+
+import java.sql.Date;
+
+public class User {
+    private int id;
+    private String username;
+    private String email;
+    private String password;
+    private String firstName;
+    private String lastName;
+
+	public int getId() {
+		return id;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public char getGender() {
+		return gender;
+	}
+	
+	public User(int id, String username, String email, String password, String firstName, String lastName) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+
+
+	}
+	
+	public User() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
+				+ ", firstName=" + firstName + ", lastName=" + lastName + "]";
+	}
+	
+    
+    
+}

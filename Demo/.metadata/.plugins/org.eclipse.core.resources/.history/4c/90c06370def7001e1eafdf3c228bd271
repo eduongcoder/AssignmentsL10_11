@@ -1,0 +1,29 @@
+package datalayer;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import entity.user;
+import utils.connect;
+
+public class userRepository {
+
+	private connect conn;
+	public List<user> getListUsers() throws SQLException,ClassNotFoundException{
+		List<user> users= new ArrayList<>();
+		
+		Connection connection=conn.getConnection();
+	
+		String sql ="select * from `user`";
+		Statement statement =connection.createStatement();
+		
+		ResultSet resultSet = statement.executeQuery(sql);
+		while(resultSet.next()) {
+			user user = new user(resultSet.getInt("id"));
+		}
+	}
+}

@@ -1,0 +1,22 @@
+package presentationLayer;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import datalayer.UserRepository;
+import entity.User;
+
+public class GroupController {
+	private UserRepository userRepository;
+
+	public GroupController() {
+		// TODO Auto-generated constructor stub
+		userRepository = new UserRepository();
+	}
+
+	public List<User> getListGroup() throws SQLException, ClassNotFoundException, IOException {
+		return userRepository.getListUsers();
+
+	}
+}

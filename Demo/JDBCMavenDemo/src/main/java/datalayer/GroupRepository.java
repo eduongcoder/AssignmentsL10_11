@@ -1,0 +1,54 @@
+package datalayer;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import entity.Group;
+import utils.connect;
+
+public class GroupRepository {
+	private connect conn;
+	
+	public GroupRepository(){
+		conn=new connect();
+	}
+	public List<Group> getListGroup() throws IOException,SQLException,ClassNotFoundException{
+		List<Group> groups= new ArrayList<>();
+		
+		Connection connection=conn.getConnection();
+	
+		String sql ="select id,name from `group`";
+		Statement statement =connection.createStatement();
+		
+		ResultSet resultSet = statement.executeQuery(sql);
+		while(resultSet.next()) {
+			Group group= new Group(resultSet.getInt("id"),resultSet.getString("name"));
+			groups.add(group);
+			
+		}
+		conn.disconnect();
+		return groups;
+	}
+	public  void createDataGroup(Connection connection,String groupName,short authorId) throws SQLException {
+		String sql = "insert into `group` (`name`,author_ID )" +
+					  "values 			(  ?   ,	?	  )";
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		// input scanner
+
+		// set parameter
+		preparedStatement.setString(1, groupName);
+		preparedStatement.setShort(2, authorId);
+
+		int effectedRecordAmount = preparedStatement.executeUpdate();
+
+		System.out.println("Effect Record Amount: " + effectedRecordAmount);
+
+	}
+}

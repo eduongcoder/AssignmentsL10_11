@@ -1,0 +1,42 @@
+package datalayer;
+
+import java.io.IOException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import entity.User;
+import utils.connect;
+
+public class userRepository {
+
+	private connect conn;
+	public List<User> getListUsers() throws IOException,SQLException,ClassNotFoundException{
+		List<User> users= new ArrayList<>();
+		
+		Connection connection=conn.getConnection();
+	
+		String sql ="select * from `user`";
+		Statement statement =connection.createStatement();
+		
+		ResultSet resultSet = statement.executeQuery(sql);
+		while(resultSet.next()) {
+			int id = resultSet.getInt("id");
+			String username = resultSet.getString("username");
+			String email = resultSet.getString("email");
+			String password = resultSet.getString("password");
+			String firstName = resultSet.getString("firstName");
+			String lastName = resultSet.getString("lastName");
+			char gender = resultSet.getString("gender").charAt(0); // Lấy ký tự đầu tiên của giá trị enum
+			Date dateOfBirth = resultSet.getDate("date_Of_Birth");
+			String address = resultSet.getString("address");
+			String phone = resultSet.getString("phone");
+			String role = resultSet.getString("role");
+			byte status = resultSet.getByte("status");
+			User user1 = new User();
+			
+			users.add(user1);
+		}
+		return users;
+	}
+}

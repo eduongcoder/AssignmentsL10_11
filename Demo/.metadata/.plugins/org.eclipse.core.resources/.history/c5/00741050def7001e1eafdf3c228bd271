@@ -1,0 +1,16 @@
+package entity;
+
+public class user {
+    private short id;
+    private String username;
+    private String email;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private char gender; // hoặc private String gender;
+    private java.sql.Date dateOfBirth;
+    private String address;
+    private String phone;
+    private String role;
+    private byte status;
+}

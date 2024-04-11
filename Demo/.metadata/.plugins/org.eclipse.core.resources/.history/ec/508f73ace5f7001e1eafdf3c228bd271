@@ -1,0 +1,22 @@
+package frontend;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.vti.entiy.Group;
+
+import entity.User;
+import presentationLayer.UserController;
+
+public class Program  {
+	public static void main(String[]args) throws ClassNotFoundException,SQLException,IOException{
+		UserController userController= new UserController();
+		List<User> users=userController.getListUser();
+		
+		
+		for (User user : users) {
+			System.out.println(user);
+		}
+	}
+}

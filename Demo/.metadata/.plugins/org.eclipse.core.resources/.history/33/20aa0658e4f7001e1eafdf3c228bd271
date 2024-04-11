@@ -1,0 +1,14 @@
+package businesslayer;
+
+import datalayer.userRepository;
+
+public class UserService {
+
+	private userRepository userRepository;
+	
+	public UserService() {
+		// TODO Auto-generated constructor stub
+		userRepository= new userRepository();
+	}
+	
+}

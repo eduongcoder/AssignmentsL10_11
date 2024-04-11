@@ -1,0 +1,13 @@
+package businesslayer;
+
+import datalayer.GroupRepository;
+
+public class GroupService {
+	GroupRepository groupRepository;
+
+	public GroupService() {
+		groupRepository= new GroupRepository();
+	}
+	
+	
+}

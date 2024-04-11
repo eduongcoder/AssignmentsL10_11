@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 3 resources" deleteContents="false" description="Delete 3 resources" element1="/Java_Buoi_11_basic" element2="/Java_Buoi_11_basic_interface" element3="/Java_Buoi_11_comment" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="3" stamp="1712829351466"/>
+</session>

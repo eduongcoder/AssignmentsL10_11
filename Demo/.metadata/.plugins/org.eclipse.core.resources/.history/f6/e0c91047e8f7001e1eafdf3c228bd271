@@ -1,0 +1,25 @@
+package frontend;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import entity.Group;
+import entity.User;
+import presentationLayer.GroupController;
+import presentationLayer.UserController;
+
+public class Program  {
+	public static void main(String[]args) throws ClassNotFoundException,SQLException,IOException{
+		UserController userController= new UserController();
+		List<User> users=userController.getListUser();
+		
+		
+		for (User user : users) {
+			System.out.println(user);
+		}
+		
+		GroupController groupController= new GroupController();
+		List<Group> groups=groupController.getListGroup();
+	}
+}

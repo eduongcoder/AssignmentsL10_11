@@ -1,0 +1,57 @@
+import java.sql.*;
+public class main {
+
+	public static void createDataGroup(Connection connection,String groupName,short authorId) throws SQLException {
+		String sql = "insert into `group` (`name`,author_ID )" +
+					  "values 			(  ?   ,	?	  )";
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		// input scanner
+
+		// set parameter
+		preparedStatement.setString(1, groupName);
+		preparedStatement.setShort(2, authorId);
+
+		int effectedRecordAmount = preparedStatement.executeUpdate();
+
+		System.out.println("Effect Record Amount: " + effectedRecordAmount);
+
+	}
+	public static void updateDataGroup(Connection connection) throws SQLException {
+		String sql="Update `group` "+
+					"Set `name` = ?"+
+					"Where `id` =?";
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		
+	}				
+//	public static Connection getConnection() {
+//		
+//	}
+	public static void main(String[] args) throws SQLException,ClassNotFoundException {
+		String url = "jdbc:mysql://localhost:3306/TestingSystem?autoReconnect=true&useSSL=false&characterEncoding=latin1";
+		String username = "root";
+		String password = "root";
+		// register the driver class with DriverManager
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		// Step 2: get a Database Connection 
+		Connection connection = DriverManager.getConnection(url, username, password);
+		System.out.println("Connect success!");
+		// Step 3: Create a statement obiect
+		Statement statement= connection.createStatement();
+		// Step 4: Execute SQL query
+
+		//String sql1 = "SELECT	name,author_ID "
+		//			+ "FROM		`group`";
+		//ResultSet resultSet = statement.executeQuery(sql1);
+		
+		
+		// Step 5: Handling Result Set
+//		while (resultSet.next()) { 
+//			System.out.println(resultSet.getInt("id")); 
+//			System.out.println(resultSet.getString("username")); 
+//			System.out.println(resultSet.getString("email"));
+//		}
+		//Step 6: Close connection
+		connection.close();
+	}		
+
+}

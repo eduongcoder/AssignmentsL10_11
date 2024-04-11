@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Group.java&apos; to &apos;JDBCMavenDemo/src/main/java/com.vti.entiy&apos;&#x0D;&#x0A;- Original project: &apos;Java_Buoi_11_basic&apos;&#x0D;&#x0A;- Destination element: &apos;JDBCMavenDemo/src/main/java/com.vti.entiy&apos;&#x0D;&#x0A;- Original element: &apos;com.vti.entiy.Group.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=JDBCMavenDemo/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.vti.entiy" element1="/src&lt;com.vti.entiy{Group.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1712757919627" units="1" version="1.0"/>
+</session>
